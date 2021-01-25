@@ -58,6 +58,8 @@ OBJS_BONUS =	ft_lstadd_back.o		\
 				ft_strtok_bonus.o		\
 				ft_strwcnt_bonus.o		\
 
+default : ${NAME}
+
 all : bonus
 
 ${NAME} : ${OBJS}
