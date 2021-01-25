@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/08 12:30:58 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/01/25 18:40:44 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strtok(char *str, const char *delim);
 int				ft_strwcnt(const char *str, const char *delim);
 char			*ft_strjoin_m(int size, char **strs, char *sep);
+int				ft_strchr_i(const char *str, const char c);
 
 #endif

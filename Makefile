@@ -57,6 +57,7 @@ OBJS_BONUS =	ft_lstadd_back.o		\
 				ft_strjoin_m_bonus.o	\
 				ft_strtok_bonus.o		\
 				ft_strwcnt_bonus.o		\
+				ft_strchr_i_bonus.o		\
 
 default : ${NAME}
 
