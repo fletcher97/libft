@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/01/25 18:40:44 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/06 03:38:24 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ char			*ft_strtok(char *str, const char *delim);
 int				ft_strwcnt(const char *str, const char *delim);
 char			*ft_strjoin_m(int size, char **strs, char *sep);
 int				ft_strchr_i(const char *str, const char c);
+int				ft_max(int a, int b);
+int				ft_min(int a, int b);
 
 #endif
