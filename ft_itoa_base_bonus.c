@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:56:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/06 13:39:27 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 06:49:57 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int	is_valid_base(const char *base)
 
 static char	*itoa_base_rec_s(int n, int i, int sign, const char *base)
 {
-	char *ret;
-	int bsize;
+	char	*ret;
+	int		bsize;
 
 	if (n == 0)
 	{

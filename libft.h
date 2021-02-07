@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/06 13:37:59 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 06:44:34 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct	s_ipair
 	int	a;
 	int	b;
 }				t_ipair;
-
 
 typedef unsigned char	t_uc;
 

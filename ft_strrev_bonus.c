@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 13:03:18 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/06 13:30:14 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 06:51:07 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrev(char *str)
 
 	if (!str)
 		return (NULL);
-	i = ft_strlen(str) -1;
+	i = ft_strlen(str) - 1;
 	while (i > 0)
 	{
 		ft_swap(str, str + i, 1);
