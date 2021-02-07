@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+DFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 AR = ar rcs
 
@@ -60,6 +61,10 @@ OBJS_BONUS =	ft_lstadd_back.o		\
 				ft_strchr_i_bonus.o		\
 				ft_max_bonus.o			\
 				ft_min_bonus.o			\
+				ft_uitoa_bonus.o		\
+				ft_itoa_base_bonus.o	\
+				ft_swap_bonus.o			\
+				ft_strrev_bonus.o		\
 
 default : ${NAME}
 
@@ -88,3 +93,6 @@ re : fclean all
 so:
 	$(CC) -fPIC $(CFLAGS) -c $(OBJS:.o=.c) $(OBJS_BONUS:.o=.c)
 	gcc -shared -o libft.so $(OBJS) $(OBJS_BONUS)
+
+test : all
+	${CC} ${DFLAGS} tests/main.c -L. -l:libft.a -I . -o test

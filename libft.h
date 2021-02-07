@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/06 03:38:24 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/06 13:37:59 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct	s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct	s_ipair
+{
+	int	a;
+	int	b;
+}				t_ipair;
+
 
 typedef unsigned char	t_uc;
 
@@ -99,5 +106,9 @@ char			*ft_strjoin_m(int size, char **strs, char *sep);
 int				ft_strchr_i(const char *str, const char c);
 int				ft_max(int a, int b);
 int				ft_min(int a, int b);
+char			*ft_uitoa(int n);
+char			*ft_itoa_base(int n, const char *base);
+void			ft_swap(void *e1, void *e2, size_t size);
+char			*ft_strrev(char *str);
 
 #endif

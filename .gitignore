@@ -3,3 +3,5 @@
 *.so
 .vscode
 a.out
+test
+tests/*
