@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:38 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:23 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:06:27 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
+	int	i;
 
 	if (!s || fd < 0)
 		return ;

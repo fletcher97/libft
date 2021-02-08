@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:56:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 06:49:57 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:17:18 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	is_valid_base(const char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (base[++i] != '\0')
@@ -37,19 +37,21 @@ static char	*itoa_base_rec_s(int n, int i, int sign, const char *base)
 
 	if (n == 0)
 	{
-		if ((ret = malloc(i + 1)) == NULL)
+		ret = malloc(i + 1);
+		if (ret == NULL)
 			return (NULL);
 		ret[i] = '\0';
 		return (ret);
 	}
 	bsize = ft_strlen(base);
-	if ((ret = itoa_base_rec_s(n / bsize, i + 1, sign, base)) == NULL)
+	ret = itoa_base_rec_s(n / bsize, i + 1, sign, base);
+	if (ret == NULL)
 		return (NULL);
 	ret[i] = base[ft_abs(n % bsize)];
 	return (ret);
 }
 
-char		*ft_itoa_base(int n, const char *base)
+char	*ft_itoa_base(int n, const char *base)
 {
 	char	*ret;
 
@@ -57,7 +59,7 @@ char		*ft_itoa_base(int n, const char *base)
 		return (NULL);
 	if (n == 0)
 	{
-		if ((ret = malloc(2)) == NULL)
+		if (!ft_set64((int64_t *)&ret, (int64_t)malloc(2)))
 			return (NULL);
 		ret[0] = '0';
 		ret[1] = '\0';
@@ -65,15 +67,12 @@ char		*ft_itoa_base(int n, const char *base)
 	}
 	if (n < 0)
 	{
-		if ((ret = itoa_base_rec_s(n, 1, 0, base)) == NULL)
+		ret = itoa_base_rec_s(n, 1, 0, base);
+		if (ret == NULL)
 			return (NULL);
-		ft_strrev(ret + 1);
 		ret[0] = '-';
+		return (ft_strrev(ret + 1) - 1);
 	}
-	else
-	{
-		ret = itoa_base_rec_s(n, 0, 1, base);
-		ft_strrev(ret);
-	}
-	return (ret);
+	ret = itoa_base_rec_s(n, 0, 1, base);
+	return (ft_strrev(ret));
 }

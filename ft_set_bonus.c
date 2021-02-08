@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_set_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:23:10 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:32:04 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/07 21:24:52 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/08 08:19:15 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int8_t	ft_set8(int8_t *a, int8_t b)
 {
-	size_t	i;
+	*a = b;
+	return (b);
+}
 
-	if (!src)
-		return (0);
-	if (dstsize)
-	{
-		i = -1;
-		while (++i < dstsize && src[i])
-			dst[i] = src[i];
-		if (i == dstsize)
-			i--;
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
+int16_t	ft_set16(int16_t *a, int16_t b)
+{
+	*a = b;
+	return (b);
+}
+
+int32_t	ft_set32(int32_t *a, int32_t b)
+{
+	*a = b;
+	return (b);
+}
+
+int64_t	ft_set64(int64_t *a, int64_t b)
+{
+	*a = b;
+	return (b);
 }

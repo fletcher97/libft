@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:21 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/12 18:26:26 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 23:05:37 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	t_uc *p;
+	t_uc	*p;
 
 	p = s;
 	while (n > 0)

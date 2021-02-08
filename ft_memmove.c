@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/12 19:01:40 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:21:32 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (dest);
 	d = (t_uc*)dest;
 	s = (t_uc*)src;
-	inc = dest < src ? 1 : -1;
-	i = dest < src ? 0 : n - 1;
-	n = dest < src ? n : 0;
+	inc = ft_ternary16(dest < src, 1, -1);
+	i = ft_ternary64(dest < src, 0, n - 1);
+	n = ft_ternary64(dest < src, n, 0);
 	while (i != n)
 	{
 		d[i] = s[i];

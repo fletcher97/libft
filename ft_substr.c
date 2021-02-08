@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:39 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:48:04 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:54:27 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*strcpy_s(char *dest, const char *src)
 {
-	char *d;
+	char	*d;
 
 	d = dest;
 	while (*src)
@@ -23,7 +23,7 @@ static char	*strcpy_s(char *dest, const char *src)
 	return (dest);
 }
 
-char		*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ret;
 	size_t	size;
@@ -37,8 +37,8 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ret);
 	}
 	size = ft_strlen(s + start);
-	size = size > len ? len : size;
-	if (!(ret = malloc(size + 1)))
+	size = ft_ternary64(size > len, len, size);
+	if (!ft_set64((int64_t *)&ret, (int64_t)malloc(size + 1)))
 		return (NULL);
 	ret = strcpy_s(ret, s + start);
 	ret[size] = '\0';

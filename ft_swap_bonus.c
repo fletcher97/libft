@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 13:06:41 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/06 13:22:15 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:42:35 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_swap(void *e1, void *e2, size_t size)
 {
-	void *temp;
+	void	*temp;
 
 	temp = malloc(size);
 	ft_memcpy(temp, e1, size);

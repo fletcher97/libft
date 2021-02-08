@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:36 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:59 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:40:43 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t end;
+	size_t	end;
 
 	if (!s1 || !set)
 		return (NULL);

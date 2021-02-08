@@ -65,12 +65,14 @@ OBJS_BONUS =	ft_lstadd_back.o		\
 				ft_itoa_base_bonus.o	\
 				ft_swap_bonus.o			\
 				ft_strrev_bonus.o		\
+				ft_ternary_bonus.o		\
+				ft_set_bonus.o			\
 
 default : ${NAME}
 
 all : bonus
 
-${NAME} : ${OBJS}
+$(NAME) : ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
 bonus : ${NAME} ${OBJS_BONUS}

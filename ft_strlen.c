@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:15 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:44 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:32:15 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t r;
+	size_t	r;
 
 	r = 0;
 	while (s[r])

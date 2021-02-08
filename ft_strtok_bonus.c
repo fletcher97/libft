@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 04:30:32 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:56 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:55:55 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strtok(char *str, const char *delim)
 
 	if (((!curr || !*curr) && !str) || !delim)
 		return (NULL);
-	curr = str ? str : curr;
+	curr = (char *)ft_ternary64((int64_t)str, (int64_t)str, (int64_t)curr);
 	while (*curr && ft_strchr(delim, *curr))
 		curr++;
 	ret = curr;
@@ -30,6 +30,6 @@ char	*ft_strtok(char *str, const char *delim)
 		*curr = '\0';
 		curr++;
 	}
-	curr = *curr ? curr : NULL;
-	return (*ret ? ret : NULL);
+	curr = (char *)ft_ternary64((int64_t) * curr, (int64_t)curr, 0);
+	return ((char *)ft_ternary64((int64_t) * ret, (int64_t)ret, 0));
 }

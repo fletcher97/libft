@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:42 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:26 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:34:10 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	strwcnt_s(const char *str, const char *delim)
 {
-	int i;
-	int count;
-	int flag;
+	int	i;
+	int	count;
+	int	flag;
 
 	count = 0;
 	flag = 0;
@@ -41,7 +41,7 @@ static char	*strtok_s(char *str, const char *delim)
 
 	if (((!curr || !*curr) && !str) || !delim)
 		return (NULL);
-	curr = str ? str : curr;
+	curr = (char*)ft_ternary64((int64_t)str, (int64_t)str, (int64_t)curr);
 	while (*curr && ft_strchr(delim, *curr))
 		curr++;
 	ret = curr;
@@ -52,11 +52,11 @@ static char	*strtok_s(char *str, const char *delim)
 		*curr = '\0';
 		curr++;
 	}
-	curr = *curr ? curr : NULL;
-	return (*ret ? ret : NULL);
+	curr = (char*)ft_ternary64((int64_t) * curr, (int64_t)curr, (int64_t) NULL);
+	return ((char*)ft_ternary64((int64_t) * ret, (int64_t)ret, (int64_t) NULL));
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**ret;
 	char	*dup;
@@ -68,10 +68,10 @@ char		**ft_split(char const *s, char c)
 		return (NULL);
 	delim[0] = c;
 	delim[1] = '\0';
-	cnt = strwcnt_s(s, delim);
-	if (!(ret = malloc(sizeof(char *) * (cnt + 1))))
+	cnt = strwcnt_s(s, delim) + 1;
+	if (!ft_set64((int64_t *)&ret, (int64_t)malloc(sizeof(char *) * (cnt))))
 		return (NULL);
-	ret[cnt] = NULL;
+	ret[--cnt] = NULL;
 	if (!cnt)
 		return (ret);
 	dup = ft_strdup(s);

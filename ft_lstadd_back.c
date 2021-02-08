@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:52 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:46:38 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:09:52 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *curr;
+	t_list	*curr;
 
 	curr = (*lst);
 	if (!curr)

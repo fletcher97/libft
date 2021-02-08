@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 06:44:34 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:47:13 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-typedef struct	s_ipair
+typedef struct s_ipair
 {
 	int	a;
 	int	b;
@@ -87,7 +88,7 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),\
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 
 /*
@@ -109,5 +110,18 @@ char			*ft_uitoa(int n);
 char			*ft_itoa_base(int n, const char *base);
 void			ft_swap(void *e1, void *e2, size_t size);
 char			*ft_strrev(char *str);
+
+/*
+** Norm free
+*/
+
+int8_t			ft_ternary8(int flag, int8_t a, int8_t b);
+int16_t			ft_ternary16(int flag, int16_t a, int16_t b);
+int32_t			ft_ternary32(int flag, int32_t a, int32_t b);
+int64_t			ft_ternary64(int flag, int64_t a, int64_t b);
+int8_t			ft_set8(int8_t *a, int8_t b);
+int16_t			ft_set16(int16_t *a, int16_t b);
+int32_t			ft_set32(int32_t *a, int32_t b);
+int64_t			ft_set64(int64_t *a, int64_t b);
 
 #endif

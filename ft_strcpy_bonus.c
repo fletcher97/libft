@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 06:19:00 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:31 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 09:11:23 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dest, const char *src)
 {
-	char *d;
+	char	*d;
 
 	d = dest;
 	while (*src)

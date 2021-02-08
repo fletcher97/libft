@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:09 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:46:44 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:10:03 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *aux;
+	t_list	*aux;
 
 	while (*lst != NULL)
 	{

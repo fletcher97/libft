@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:50 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:46:58 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/08 08:18:48 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstnew(void *conten)
 {
-	t_list *elem;
+	t_list	*elem;
 
-	if (!(elem = malloc(sizeof(t_list))))
+	if (!(ft_set64((int64_t *)&elem, (int64_t)malloc(sizeof(t_list)))))
 		return (NULL);
 	elem->content = conten;
 	elem->next = NULL;
