@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:42 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:18:29 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/09 19:17:56 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	ret = ft_lstnew(f(lst->content));
 	aux = ret;
-	while (ft_set64((int64_t *)&lst, (int64_t)lst->next))
+	while (ft_set64((int64_t *)&lst, (int64_t)lst->next) && aux)
 	{
 		aux->next = ft_lstnew(f(lst->content));
 		aux = aux->next;
 	}
-	ft_lstclear(&lst, del);
+	if (!aux)
+	{
+		ft_lstclear(ret, del);
+		ret = NULL;
+	}
 	return (ret);
 }
