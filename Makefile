@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-DFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+DFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
 AR = ar rcs
 
