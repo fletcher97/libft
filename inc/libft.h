@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:35 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:47:13 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/11 13:19:20 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,24 @@ typedef struct s_ipair
 typedef unsigned char	t_uc;
 
 /*
+** ctype
+*/
+
+int				ft_isalnum(int c);
+int				ft_isalpha(int c);
+int				ft_iscntrl(int c);
+int				ft_isdigit(int c);
+int				ft_isgraph(int c);
+int				ft_islower(int c);
+int				ft_isprint(int c);
+int				ft_ispunct(int c);
+int				ft_isspace(int c);
+int				ft_isupper(int c);
+int				ft_isxdigit(int c);
+
+int				ft_isascii(int c);
+
+/*
 ** Part I
 */
 
@@ -50,11 +68,6 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(char *nptr);
-int				ft_isalpha(int c);
-int				ft_isdigit(int c);
-int				ft_isalnum(int c);
-int				ft_isascii(int c);
-int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
@@ -96,9 +109,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 */
 
 int				ft_abs(int x);
-int				ft_islower(int c);
-int				ft_isspace(char c);
-int				ft_isupper(char c);
 char			*ft_strcpy(char *dest, const char *src);
 char			*ft_strtok(char *str, const char *delim);
 int				ft_strwcnt(const char *str, const char *delim);

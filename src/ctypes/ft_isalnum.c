@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:20:10 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 20:39:40 by mgueifao         ###   ########.fr       */
+/*   Created: 2020/11/26 01:19:06 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/11 11:24:18 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	return (c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r' || c == ' ');
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isgraph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:20:21 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:46:33 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/11 11:29:57 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/11 11:32:15 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isupper(char c)
+#include "libft.h"
+
+int	isgraph(int c)
 {
-	return (c >= 'A' && c <= 'Z');
+	return (c != ' ' && ft_isprint(c));
 }

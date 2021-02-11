@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:19:14 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 19:33:24 by mgueifao         ###   ########.fr       */
+/*   Created: 2020/11/26 01:21:42 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/11 11:01:29 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	isupper_s(int c)
-{
-	return (c >= 'A' && c <= 'Z');
-}
+#include "libft.h"
 
-static int	islower_s(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	return (c >= 'a' && c <= 'z');
-}
+	t_list	*ret;
+	t_list	*aux;
 
-int	ft_isalpha(int c)
-{
-	return (isupper_s(c) || islower_s(c));
+	if (!lst)
+		return (NULL);
+	ret = ft_lstnew(f(lst->content));
+	aux = ret;
+	while (ft_set64((int64_t *)&lst, (int64_t)lst->next) && aux)
+	{
+		aux->next = ft_lstnew(f(lst->content));
+		aux = aux->next;
+	}
+	if (!aux)
+	{
+		ft_lstclear(&ret, del);
+		ret = NULL;
+	}
+	return (ret);
 }
