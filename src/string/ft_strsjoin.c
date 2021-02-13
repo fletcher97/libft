@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_m_bonus.c                               :+:      :+:    :+:   */
+/*   ft_strjoin_m.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:58 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:34 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:07:45 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_stdlib.h"
 
-char	*ft_strjoin_m(int size, char **strs, char *sep)
+char	*ft_strsjoin(int size, char **strs, char *sep)
 {
 	size_t			total_size;
 	char			*ret;
@@ -23,7 +24,7 @@ char	*ft_strjoin_m(int size, char **strs, char *sep)
 	total_size = 0;
 	while (++i < size)
 		total_size += ft_strlen(strs[i]);
-	ret = malloc(sizeof(char) * (total_size + ((size - 1) * ft_strlen(sep))));
+	ret = ft_malloc(sizeof(char) * (total_size + ((size - 1) * ft_strlen(sep))));
 	i = -1;
 	pos = 0;
 	while (++i < size)

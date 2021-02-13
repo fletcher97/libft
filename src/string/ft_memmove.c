@@ -6,11 +6,12 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:21:32 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:29:12 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_norm.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

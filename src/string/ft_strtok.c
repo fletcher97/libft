@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtok_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strtok.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 04:30:32 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:55:55 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:14:53 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_norm.h"
 
 char	*ft_strtok(char *str, const char *delim)
 {

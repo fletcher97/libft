@@ -6,12 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:59 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/12 18:39:34 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:27:37 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <string.h>
+#include "ft_string.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {

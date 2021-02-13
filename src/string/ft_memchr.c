@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:04 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:05 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:27:51 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

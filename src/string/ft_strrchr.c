@@ -6,11 +6,12 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:32 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:52:55 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:13:12 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_norm.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

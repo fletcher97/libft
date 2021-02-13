@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strwcnt_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strwcnt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 05:33:43 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:40:56 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:18:18 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 int	ft_strwcnt(const char *str, const char *delim)
 {

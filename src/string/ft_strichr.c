@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr_i_bonus.c                                :+:      :+:    :+:   */
+/*   ft_strchr_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 18:35:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:58:59 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:33:20 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_norm.h"
 
-int	ft_strchr_i(const char *str, const char c)
+int	ft_strichr(const char *str, const char c)
 {
 	char	*pos;
 

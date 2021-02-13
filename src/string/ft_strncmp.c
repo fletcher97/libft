@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:24 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:49 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:12:12 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

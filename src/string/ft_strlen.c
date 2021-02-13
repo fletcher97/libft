@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:15 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:32:15 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:09:53 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 size_t	ft_strlen(const char *s)
 {

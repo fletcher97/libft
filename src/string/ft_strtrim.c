@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:36 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:40:43 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 21:17:24 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
