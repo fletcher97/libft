@@ -1,95 +1,150 @@
+################################################################################
+# Project Variables
+################################################################################
+
+NAME = libft.a
+AR = ar rcs
+
+VERBOSE = false
+
+################################################################################
+# Compiler & Flags
+################################################################################
+
 CC = gcc
-BIN_DIR = bin
-SRC_DIR = src
-INC_DIR = inc
-OBJ_DIR = obj
+
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
-AR = ar rcs
+################################################################################
+# Folders & Files
+################################################################################
 
-NAME = libft.a
+BIN_ROOT = bin
+SRC_ROOT = src
+INC_ROOT = inc
+OBJ_ROOT = obj
+DEP_ROOT = dep
+TESTS_ROOT = tests
 
-vpath %.o $(OBJ_DIR)
-vpath %.h $(INC_DIR)
-vpath %.c $(SRC_DIR)
+DIRS = ctype list norm stdio stdlib string temp
+SRC_DIRS = $(addprefix ${SRC_ROOT}/, ${DIRS})
+OBJ_DIRS = $(addprefix ${OBJ_ROOT}/, ${DIRS})
+DEP_DIRS = $(addprefix ${DEP_ROOT}/, ${DIRS})
 
-OBJS =	ft_atoi.o			\
-		ft_bzero.o			\
-		ft_calloc.o			\
-		ft_isalnum.o		\
-		ft_isalpha.o		\
-		ft_isascii.o		\
-		ft_isdigit.o		\
-		ft_isprint.o		\
-		ft_itoa.o			\
-		ft_memccpy.o		\
-		ft_memchr.o			\
-		ft_memcmp.o			\
-		ft_memcpy.o			\
-		ft_memmove.o		\
-		ft_memset.o			\
-		ft_putchar_fd.o		\
-		ft_putendl_fd.o		\
-		ft_putnbr_fd.o		\
-		ft_putstr_fd.o		\
-		ft_split.o			\
-		ft_strchr.o			\
-		ft_strdup.o			\
-		ft_strjoin.o		\
-		ft_strlcat.o		\
-		ft_strlcpy.o		\
-		ft_strlen.o			\
-		ft_strmapi.o		\
-		ft_strncmp.o		\
-		ft_strnstr.o		\
-		ft_strrchr.o		\
-		ft_strtrim.o		\
-		ft_substr.o			\
-		ft_tolower.o		\
-		ft_toupper.o		\
-		ft_lstadd_back.o	\
-		ft_lstadd_front.o	\
-		ft_lstclear.o		\
-		ft_lstdelone.o		\
-		ft_lstiter.o		\
-		ft_lstlast.o		\
-		ft_lstmap.o			\
-		ft_lstnew.o			\
-		ft_lstsize.o		\
-		ft_abs.o			\
-		ft_islower.o		\
-		ft_isspace.o		\
-		ft_isupper.o		\
-		ft_strcpy.o			\
-		ft_strjoin_m.o		\
-		ft_strtok.o			\
-		ft_strwcnt.o		\
-		ft_strchr_i.o		\
-		ft_max.o			\
-		ft_min.o			\
-		ft_uitoa.o			\
-		ft_itoa_base.o		\
-		ft_swap.o			\
-		ft_strrev.o			\
-		ft_ternary.o		\
-		ft_set.o			\
+SRCS = $(foreach dir, ${SRC_DIRS}, $(wildcard ${dir}/*.c))
+OBJS = $(subst ${SRC_ROOT}, ${OBJ_ROOT}, ${SRCS:.c=.o})
+DEPS := $(subst ${SRC_ROOT}, ${DEP_ROOT}, ${SRCS:.c=.d})
 
-${NAME} : ${OBJS}
-	${AR} ${BIN_DIR}/${NAME} $(addprefix ${OBJ_DIR}/, ${OBJS})
+INCS = -I ${INC_ROOT}
 
-%.o : %.c
-	$(CC) ${CFLAGS} -c $< -I ${INC_DIR} -o ${OBJ_DIR}/$@
+BINS = ${BIN_ROOT}/${NAME}
 
-.PHNONY : clean fclean re all
+################################################################################
+# VPATHS
+################################################################################
 
-clean :
-	rm -f ${OBJ_DIR}/*
+vpath %.o $(OBJ_ROOT)
+vpath %.h $(INC_ROOT)
+vpath %.c $(SRC_DIRS)
+vpath %.d $(DEP_DIRS)
 
-fclean : clean
-	rm -f ${bin}/${NAME}
+################################################################################
+# Conditions
+################################################################################
 
-re : fclean ${NAME}
+ifeq ($(VERBOSE),true)
+	AT =
+else
+	AT = @
+endif
 
-test : ${NAME}
-	${CC} ${DFLAGS} tests/main.c -L. -l:${BIN_DIR}/${NAME} -I ${INC_DIR} -o test
+################################################################################
+# Project Target
+################################################################################
+
+all: ${BINS}
+
+${BINS}: ${OBJS}
+	${AT}printf "\033[33m[CREATING LIBFT ARCHIVE]\033[0m\n"
+	${AT}${AR} ${BINS} ${OBJS}
+
+################################################################################
+# Setup Target
+################################################################################
+
+.init:
+	${AT}printf "\033[33m[CREATING FOLDER STRUCTURE]\033[0m\n"
+	${AT}mkdir -p ${BIN_ROOT}
+	${AT}mkdir -p ${DEP_ROOT}
+	${AT}mkdir -p ${INC_ROOT}
+	${AT}mkdir -p ${OBJ_ROOT}
+	${AT}mkdir -p ${SRC_ROOT}
+	${AT}mkdir -p ${TESTS_ROOT}
+	${AT}printf "\033[33m[INITIALIZING GIT REPOSITORY]\033[0m\n"
+	${AT}git init
+	${AT}echo *.o\n*.d\n.vscode\na.out\n.init > .gitignore
+	${AT}touch ${BIN_ROOT}/.gitkeep
+	${AT}touch ${DEP_ROOT}/.gitkeep
+	${AT}touch ${OBJ_ROOT}/.gitkeep
+	${AT}touch $@
+
+################################################################################
+# General Targets
+################################################################################
+
+clean:
+	${AT}printf "\033[33m[REMOVING DEPENDENCIES]\033[0m\n"
+	${AT}find ${DEP_ROOT} -type f -delete 2>/dev/null
+	${AT}printf "\033[33m[REMOVING OBJECTS]\033[0m\n"
+	${AT}find ${OBJ_ROOT} -type f -delete 2>/dev/null
+
+fclean:
+	${AT}printf "\033[33m[REMOVING BINARIES]\033[0m\n"
+	${AT}find $(BIN_ROOT) -type f -delete
+
+re: fclean all
+
+################################################################################
+# .PHONY
+################################################################################
+
+.PHONY : clean fclean re
+
+################################################################################
+# Function
+################################################################################
+
+define make_obj
+${1} : ${2} ${3}
+	$${AT}printf "\033[33m [OBJ]:\033[0m $$@\n"
+	$${AT}mkdir -p $${@D}
+	$${AT}$${CC} $${CFLAGS} $${INCS} -c $$< -o $$@
+endef
+
+define make_dep
+${1} : ${2}
+	$${AT}printf "\033[33m [DEP]:\033[0m $$@\n"
+	$${AT}mkdir -p $${@D}
+	$${AT}$${CC} -MM $$< -I $${INC_ROOT} -MF $$@
+	$${AT}sed -i.tmp --expression 's|:| $$@ :|' $$@ && rm $$@.tmp
+	$${AT}sed -i.tmp --expression 's|^|$${@D}/|' $$@ && rm $$@.tmp
+endef
+
+################################################################################
+# Function Generator
+################################################################################
+
+$(foreach src, $(SRCS), $(eval \
+$(call make_dep, $(subst ${SRC_ROOT}, ${DEP_ROOT}, $(src:.c=.d)), $(src))))
+
+$(foreach src, $(SRCS), $(eval \
+$(call make_obj, $(subst ${SRC_ROOT}, ${OBJ_ROOT}, $(src:.c=.o)), \
+$(src), \
+$(subst ${SRC_ROOT}, ${DEP_ROOT}, $(src:.c=.d)))))
+
+################################################################################
+# Includes
+################################################################################
+
+include ${DEPS}
