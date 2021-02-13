@@ -6,11 +6,14 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:42 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/11 11:01:29 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 13:52:50 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+
+#include "ft_list.h"
+#include "ft_norm.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

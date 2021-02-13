@@ -6,23 +6,25 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:52 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 22:09:52 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 13:48:16 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+#include "ft_list.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *elem)
 {
 	t_list	*curr;
 
 	curr = (*lst);
 	if (!curr)
 	{
-		*lst = new;
+		*lst = elem;
 		return ;
 	}
 	while (curr->next != NULL)
 		curr = curr->next;
-	curr->next = new;
+	curr->next = elem;
 }
