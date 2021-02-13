@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_iscntrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:23:48 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:43:30 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/11 11:26:21 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 13:22:13 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	islower_s(int c)
+int	ft_iscntrl(int c)
 {
-	return (c >= 'a' && c <= 'z');
-}
-
-int	ft_toupper(int c)
-{
-	if (islower_s(c))
-		c -= 32;
-	return (c);
+	return ((c >= 0 && c <= 31) || c == 127);
 }

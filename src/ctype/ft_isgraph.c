@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
+/*   ft_isgraph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/11 11:51:25 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/11 11:53:17 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/11 11:29:57 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 13:22:32 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ctype.h"
 
-int	ft_isxdigit(int c)
+int	ft_isgraph(int c)
 {
-	return (ft_isdigit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
+	return (c != ' ' && ft_isprint(c));
 }

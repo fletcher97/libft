@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:19:14 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/11 11:24:51 by mgueifao         ###   ########.fr       */
+/*   Created: 2020/11/26 01:23:48 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 13:17:55 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ctype.h"
 
-int	ft_isalpha(int c)
+int	ft_toupper(int c)
 {
-	return (ft_isupper(c) || ft_islower(c));
+	if (ft_islower(c))
+		c -= 32;
+	return (c);
 }

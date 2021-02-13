@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:20:02 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/11 11:39:59 by mgueifao         ###   ########.fr       */
+/*   Created: 2020/11/26 01:23:44 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 13:18:22 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ctype.h"
 
-int	ft_isprint(int c)
+int	ft_tolower(int c)
 {
-	return (!ft_iscntrl(c));
+	if (ft_isupper(c))
+		c += 32;
+	return (c);
 }
