@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 21:24:52 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:19:15 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 14:14:10 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_norm.h"
 
 int8_t	ft_set8(int8_t *a, int8_t b)
 {
