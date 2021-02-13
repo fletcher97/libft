@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 03:35:25 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:16 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:21:01 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

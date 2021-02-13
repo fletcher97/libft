@@ -6,11 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:29 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:18 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:21:21 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stdio.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

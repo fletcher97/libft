@@ -6,11 +6,12 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:34 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/01 09:47:20 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 20:20:06 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stdio.h"
+#include "ft_stdlib.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
