@@ -6,11 +6,13 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:18:55 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 20:08:51 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 14:18:57 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+
+#include "ft_string.h"
 
 static int	of_s(size_t s, size_t n)
 {
@@ -29,6 +31,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	p = malloc(nmemb * size);
 	if (of_s(nmemb, size) || !p)
 		return (NULL);
-	ft_bzero(p, nmemb * size);
+	ft_memset(p, nmemb * size); //TODO
 	return ((void *)p);
 }

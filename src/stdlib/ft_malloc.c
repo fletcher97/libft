@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:51:23 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 14:15:36 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/13 14:21:02 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 14:22:16 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
+#include <stdlib.h>
+
+void	*ft_malloc(size_t size)
 {
-	if (x < 0)
-		return (x * -1);
-	return (x);
+	return malloc(size);
 }

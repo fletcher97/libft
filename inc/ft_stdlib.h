@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_stdlib.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:51:23 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 14:15:36 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/13 14:03:46 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/13 20:13:54 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
-{
-	if (x < 0)
-		return (x * -1);
-	return (x);
-}
+#ifndef FT_STDLIB_H
+# define FT_STDLIB_H
+
+#include <stddef.h>
+
+int		ft_abs(int x);
+int		ft_atoi(char *str);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_free(void *ptr);
+void	*ft_malloc(size_t size);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+void	ft_swap(void *e1, void *e2, size_t size);
+
+#endif

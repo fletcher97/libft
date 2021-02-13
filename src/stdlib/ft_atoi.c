@@ -6,17 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:32:40 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/07 19:48:51 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 14:16:49 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	isspace_s(char c)
-{
-	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || \
-c == '\r' || c == ' ');
-}
+#include "ft_ctype.h"
 
 int	ft_atoi(char *str)
 {
@@ -27,7 +21,7 @@ int	ft_atoi(char *str)
 	sign = 1;
 	ret = 0;
 	pos = 0;
-	while (isspace_s(str[pos]))
+	while (ft_isspace(str[pos]))
 		pos++;
 	if (str[pos] == '-' || str[pos] == '+')
 		if (str[pos++] == '-')
