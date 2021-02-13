@@ -27,18 +27,19 @@ OBJ_ROOT = obj
 DEP_ROOT = dep
 TESTS_ROOT = tests
 
-DIRS = ctype list norm stdio stdlib string temp
-SRC_DIRS = $(addprefix ${SRC_ROOT}/, ${DIRS})
-OBJ_DIRS = $(addprefix ${OBJ_ROOT}/, ${DIRS})
-DEP_DIRS = $(addprefix ${DEP_ROOT}/, ${DIRS})
+DIRS = ctype list
+#norm stdio stdlib string temp
+SRC_DIRS := $(addprefix ${SRC_ROOT}/, ${DIRS})
+OBJ_DIRS := $(addprefix ${OBJ_ROOT}/, ${DIRS})
+DEP_DIRS := $(addprefix ${DEP_ROOT}/, ${DIRS})
 
-SRCS = $(foreach dir, ${SRC_DIRS}, $(wildcard ${dir}/*.c))
-OBJS = $(subst ${SRC_ROOT}, ${OBJ_ROOT}, ${SRCS:.c=.o})
+SRCS := $(foreach dir, ${SRC_DIRS}, $(wildcard ${dir}/*.c))
+OBJS := $(subst ${SRC_ROOT}, ${OBJ_ROOT}, ${SRCS:.c=.o})
 DEPS := $(subst ${SRC_ROOT}, ${DEP_ROOT}, ${SRCS:.c=.d})
 
-INCS = -I ${INC_ROOT}
+INCS := -I ${INC_ROOT}
 
-BINS = ${BIN_ROOT}/${NAME}
+BINS := ${BIN_ROOT}/${NAME}
 
 ################################################################################
 # VPATHS
@@ -147,4 +148,7 @@ $(subst ${SRC_ROOT}, ${DEP_ROOT}, $(src:.c=.d)))))
 # Includes
 ################################################################################
 
-include ${DEPS}
+# -include ${DEPS}
+
+dmake:
+	@echo ${DEP_ROOT}
