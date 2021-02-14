@@ -5,6 +5,10 @@
 NAME = libft.a
 AR = ar rcs
 
+################################################################################
+# Configs
+################################################################################
+
 VERBOSE = false
 
 ################################################################################
@@ -27,8 +31,8 @@ OBJ_ROOT = obj
 DEP_ROOT = dep
 TESTS_ROOT = tests
 
-DIRS = ctype list
-#norm stdio stdlib string temp
+DIRS = ctype list norm stdio stdlib string temp
+
 SRC_DIRS := $(addprefix ${SRC_ROOT}/, ${DIRS})
 OBJ_DIRS := $(addprefix ${OBJ_ROOT}/, ${DIRS})
 DEP_DIRS := $(addprefix ${DEP_ROOT}/, ${DIRS})
@@ -67,8 +71,9 @@ endif
 all: ${BINS}
 
 ${BINS}: ${OBJS}
-	${AT}printf "\033[33m[CREATING LIBFT ARCHIVE]\033[0m\n"
-	${AT}${AR} ${BINS} ${OBJS}
+	${AT}printf "\033[38;5;46m[CREATING LIBFT ARCHIVE]\033[0m\n"
+	${AT}mkdir -p ${BIN_ROOT}
+	${AT}cd ${BIN_ROOT}; ${AR} ${@F} $(addprefix ../, ${OBJS})
 
 ################################################################################
 # Setup Target
@@ -95,14 +100,18 @@ ${BINS}: ${OBJS}
 ################################################################################
 
 clean:
-	${AT}printf "\033[33m[REMOVING DEPENDENCIES]\033[0m\n"
-	${AT}find ${DEP_ROOT} -type f -delete 2>/dev/null
-	${AT}printf "\033[33m[REMOVING OBJECTS]\033[0m\n"
+	${AT}printf "\033[38;5;1m[REMOVING OBJECTS]\033[0m\n"
 	${AT}find ${OBJ_ROOT} -type f -delete 2>/dev/null
 
-fclean:
-	${AT}printf "\033[33m[REMOVING BINARIES]\033[0m\n"
-	${AT}find $(BIN_ROOT) -type f -delete
+fclean: clean
+	${AT}printf "\033[38;5;1m[REMOVING BINARIES]\033[0m\n"
+	${AT}find ${BIN_ROOT} -type f -delete
+
+clean_dep:
+	${AT}printf "\033[38;5;1m[REMOVING DEPENDENCIES]\033[0m\n"
+	${AT}find ${DEP_ROOT} -type f -delete 2>/dev/null
+
+clean_all: clean_dep fclean
 
 re: fclean all
 
@@ -110,7 +119,7 @@ re: fclean all
 # .PHONY
 ################################################################################
 
-.PHONY : clean fclean re
+.PHONY : clean fclean clean_dep clean_all re all
 
 ################################################################################
 # Function
@@ -118,18 +127,18 @@ re: fclean all
 
 define make_obj
 ${1} : ${2} ${3}
-	$${AT}printf "\033[33m [OBJ]:\033[0m $$@\n"
+	$${AT}printf "\033[38;5;14m[OBJ]: \033[38;5;47m$$@\033[0m\n"
 	$${AT}mkdir -p $${@D}
 	$${AT}$${CC} $${CFLAGS} $${INCS} -c $$< -o $$@
 endef
 
 define make_dep
 ${1} : ${2}
-	$${AT}printf "\033[33m [DEP]:\033[0m $$@\n"
+	$${AT}printf "\033[38;5;13m[DEP]: \033[38;5;47m$$@\033[0m\n"
 	$${AT}mkdir -p $${@D}
 	$${AT}$${CC} -MM $$< -I $${INC_ROOT} -MF $$@
 	$${AT}sed -i.tmp --expression 's|:| $$@ :|' $$@ && rm $$@.tmp
-	$${AT}sed -i.tmp --expression 's|^|$${@D}/|' $$@ && rm $$@.tmp
+	$${AT}sed -i.tmp --expression '1 s|^|$${@D}/|' $$@ && rm $$@.tmp
 endef
 
 ################################################################################
@@ -148,7 +157,4 @@ $(subst ${SRC_ROOT}, ${DEP_ROOT}, $(src:.c=.d)))))
 # Includes
 ################################################################################
 
-# -include ${DEPS}
-
-dmake:
-	@echo ${DEP_ROOT}
+-include ${DEPS}
