@@ -6,12 +6,13 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 00:46:42 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 21:08:19 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 22:14:40 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 #include "ft_norm.h"
+#include "ft_stdlib.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
