@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa_bonus.c                                   :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 10:35:00 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 09:46:32 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 22:19:49 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_norm.h"
+#include "ft_stdlib.h"
 
 static char	*uitoa_rec_s(unsigned int n, int i, int *size)
 {
@@ -18,7 +19,7 @@ static char	*uitoa_rec_s(unsigned int n, int i, int *size)
 
 	if (n == 0)
 	{
-		if (!ft_set64((int64_t *)&ret, (int64_t)malloc(i + 1)))
+		if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(i + 1)))
 			return (NULL);
 		*size = i;
 		ret[i] = '\0';
@@ -37,7 +38,7 @@ char	*ft_uitoa(int n)
 
 	if (n == 0)
 	{
-		if (!ft_set64((int64_t *)&ret, (int64_t)malloc(2)))
+		if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(2)))
 			return (NULL);
 		ret[0] = '0';
 		ret[1] = '\0';

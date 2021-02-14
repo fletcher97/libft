@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base_bonus.c                               :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:56:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:17:18 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 22:17:30 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_norm.h"
+#include "ft_stdlib.h"
 
 static int	is_valid_base(const char *base)
 {
@@ -37,7 +39,7 @@ static char	*itoa_base_rec_s(int n, int i, int sign, const char *base)
 
 	if (n == 0)
 	{
-		ret = malloc(i + 1);
+		ret = ft_malloc(i + 1);
 		if (ret == NULL)
 			return (NULL);
 		ret[i] = '\0';
@@ -59,7 +61,7 @@ char	*ft_itoa_base(int n, const char *base)
 		return (NULL);
 	if (n == 0)
 	{
-		if (!ft_set64((int64_t *)&ret, (int64_t)malloc(2)))
+		if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(2)))
 			return (NULL);
 		ret[0] = '0';
 		ret[1] = '\0';

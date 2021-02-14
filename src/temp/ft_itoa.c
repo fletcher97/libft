@@ -6,18 +6,12 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:20:26 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/08 08:18:32 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/13 22:18:32 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-static int	abs_s(int x)
-{
-	if (x < 0)
-		return (x * -1);
-	return (x);
-}
+#include "ft_norm.h"
+#include "ft_stdlib.h"
 
 static char	*itoa_rec_s(int n, int i, int *s, int sign)
 {
@@ -25,7 +19,7 @@ static char	*itoa_rec_s(int n, int i, int *s, int sign)
 
 	if (n == 0)
 	{
-		ret = malloc(i + 1);
+		ret = ft_malloc(i + 1);
 		if (ret == NULL)
 			return (NULL);
 		*s = i - sign;
@@ -35,7 +29,7 @@ static char	*itoa_rec_s(int n, int i, int *s, int sign)
 	ret = itoa_rec_s(n / 10, i + 1, s, sign);
 	if (ret == NULL)
 		return (NULL);
-	ret[(*s) - i] = abs_s(n % 10) + '0';
+	ret[(*s) - i] = ft_abs(n % 10) + '0';
 	return (ret);
 }
 
@@ -46,7 +40,7 @@ char	*ft_itoa(int n)
 
 	if (n == 0)
 	{
-		if (!ft_set64((int64_t *)&ret, (int64_t)malloc(2)))
+		if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(2)))
 			return (NULL);
 		ret[0] = '0';
 		ret[1] = '\0';

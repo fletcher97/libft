@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_temp.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 01:18:36 by mgueifao          #+#    #+#             */
-/*   Updated: 2020/12/07 11:07:10 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/02/13 22:15:22 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/02/14 22:36:04 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_TEMP_H
+# define FT_TEMP_H
 
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
+# include <stddef.h>
+
+void	ft_bzero(void *s, size_t n);
+char	*ft_itoa_base(int n, const char *base);
+char	*ft_itoa(int n);
+char	*ft_uitoa(int n);
+
+#endif
