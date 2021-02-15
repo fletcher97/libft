@@ -1,4 +1,15 @@
 ################################################################################
+# Makefile
+################################################################################
+
+# Makefile by fletcher
+# Version: 1.0
+
+# This makefile can be copied to a directory and it will generate the file
+# structure and initialize a git repository with the .init rule. Any variables
+# and rules for the specifique project can be added in the appropriate section.
+
+################################################################################
 # Project Variables
 ################################################################################
 
