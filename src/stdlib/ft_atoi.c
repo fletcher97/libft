@@ -6,13 +6,13 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:32:40 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 14:16:49 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:23:06 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ctype.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	pos;
 	int	sign;

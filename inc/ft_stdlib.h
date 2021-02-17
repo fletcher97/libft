@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 14:03:46 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 20:13:54 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:23:20 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stddef.h>
 
 int		ft_abs(int x);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_free(void *ptr);
 void	*ft_malloc(size_t size);

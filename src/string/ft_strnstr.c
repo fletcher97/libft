@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:28 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 21:12:35 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:27:37 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 
 	pos = 0;
+	if (ft_strlen(little) == 0)
+		return ((char *)big);
 	while (big[pos] && pos + ft_strlen(little) <= len)
 	{
 		i = 0;

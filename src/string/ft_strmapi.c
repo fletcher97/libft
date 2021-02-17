@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:23:20 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 21:11:57 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:27:10 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(size + 1)))
 		return (NULL);
 	ret[size] = '\0';
-	while (--size)
+	while (size && --size)
 		ret[size] = f(size, s[size]);
 	ret[size] = f(size, s[size]);
 	return (ret);
