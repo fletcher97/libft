@@ -42,7 +42,7 @@ OBJ_ROOT = obj
 DEP_ROOT = dep
 TESTS_ROOT = tests
 
-DIRS = ctype list norm stdio stdlib string temp
+DIRS = ctype list norm stdio stdlib string conv
 
 SRC_DIRS := $(addprefix ${SRC_ROOT}/, ${DIRS})
 OBJ_DIRS := $(addprefix ${OBJ_ROOT}/, ${DIRS})
@@ -112,14 +112,17 @@ ${BINS}: ${OBJS}
 
 clean:
 	${AT}printf "\033[38;5;1m[REMOVING OBJECTS]\033[0m\n"
+	${AT}mkdir -p ${OBJ_ROOT}
 	${AT}find ${OBJ_ROOT} -type f -delete 2>/dev/null
 
 fclean: clean
 	${AT}printf "\033[38;5;1m[REMOVING BINARIES]\033[0m\n"
+	${AT}mkdir -p ${BIN_ROOT}
 	${AT}find ${BIN_ROOT} -type f -delete
 
 clean_dep:
 	${AT}printf "\033[38;5;1m[REMOVING DEPENDENCIES]\033[0m\n"
+	${AT}mkdir -p ${DEP_ROOT}
 	${AT}find ${DEP_ROOT} -type f -delete 2>/dev/null
 
 clean_all: clean_dep fclean
