@@ -29,7 +29,7 @@ VERBOSE = false
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
-DFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+DFLAGS = -g -fsanitize=address
 
 ################################################################################
 # Folders & Files
@@ -52,9 +52,12 @@ SRCS := $(foreach dir, ${SRC_DIRS}, $(wildcard ${dir}/*.c))
 OBJS := $(subst ${SRC_ROOT}, ${OBJ_ROOT}, ${SRCS:.c=.o})
 DEPS := $(subst ${SRC_ROOT}, ${DEP_ROOT}, ${SRCS:.c=.d})
 
+TESTS := $(wildcard ${TESTS_ROOT}/*.c)
+
 INCS := -I ${INC_ROOT}
 
 BINS := ${BIN_ROOT}/${NAME}
+TEST := ${TESTS_ROOT}/mytest
 
 ################################################################################
 # VPATHS
@@ -130,10 +133,26 @@ clean_all: clean_dep fclean
 re: fclean all
 
 ################################################################################
+# Test Targets
+################################################################################
+
+testre: CFLAGS += ${DFLAGS}
+testre: re ${TEST}
+
+testm: CFLAGS += ${DFLAGS}
+testm: all ${TEST}
+
+${TEST}:
+	${AT}printf "\033[38;5;46m[GENERATING TEST]\033[0m\n"
+	${AT}${CC} ${CFLAGS} ${INCS} ${TESTS} ${BIN_ROOT}/${NAME} -o $@
+	${AT}printf "\033[33m[RUNNING TEST]\033[0m\n"
+	${AT}./$@
+
+################################################################################
 # .PHONY
 ################################################################################
 
-.PHONY : clean fclean clean_dep clean_all re all
+.PHONY : clean fclean clean_dep clean_all re all testre testm ${TEST}
 
 ################################################################################
 # Function
