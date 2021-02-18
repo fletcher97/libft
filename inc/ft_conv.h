@@ -6,15 +6,15 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:58:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/18 10:27:26 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/18 10:31:25 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CONV_H
 # define FT_CONV_H
 
-# define HEX_L "123456789abcdef"
-# define HEX_U "123456789ABCDEF"
+# define HEX_L "0123456789abcdef"
+# define HEX_U "0123456789ABCDEF"
 
 char	*ft_itoa_base(int n, const char *base);
 char	*ft_itoa(int n);
