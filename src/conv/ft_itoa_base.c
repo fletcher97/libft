@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 11:56:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 22:17:30 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:44:18 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	is_valid_base(const char *base)
 	return (1);
 }
 
-static char	*itoa_base_rec_s(int n, int i, int sign, const char *base)
+static char	*itoa_base_rec_s(int n, int i, const char *base)
 {
 	char	*ret;
 	int		bsize;
@@ -46,7 +46,7 @@ static char	*itoa_base_rec_s(int n, int i, int sign, const char *base)
 		return (ret);
 	}
 	bsize = ft_strlen(base);
-	ret = itoa_base_rec_s(n / bsize, i + 1, sign, base);
+	ret = itoa_base_rec_s(n / bsize, i + 1, base);
 	if (ret == NULL)
 		return (NULL);
 	ret[i] = base[ft_abs(n % bsize)];
@@ -69,12 +69,12 @@ char	*ft_itoa_base(int n, const char *base)
 	}
 	if (n < 0)
 	{
-		ret = itoa_base_rec_s(n, 1, 0, base);
+		ret = itoa_base_rec_s(n, 1, base);
 		if (ret == NULL)
 			return (NULL);
 		ret[0] = '-';
 		return (ft_strrev(ret + 1) - 1);
 	}
-	ret = itoa_base_rec_s(n, 0, 1, base);
+	ret = itoa_base_rec_s(n, 0, base);
 	return (ft_strrev(ret));
 }
