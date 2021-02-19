@@ -3,7 +3,7 @@
 ################################################################################
 
 # Makefile by fletcher
-# Version: 1.0
+# Version: 1.1
 
 # This makefile can be copied to a directory and it will generate the file
 # structure and initialize a git repository with the .init rule. Any variables
@@ -133,15 +133,23 @@ clean_all: clean_dep fclean
 re: fclean all
 
 ################################################################################
+# Debug Targets
+################################################################################
+
+debug: CFLAGS += ${DFLAGS}
+debug: all
+
+debug_re: fclean debug
+
+################################################################################
 # Test Targets
 ################################################################################
 
-testre: CFLAGS += ${DFLAGS}
-testre: re ${TEST}
+testre: debug_re ${TEST}
 
-testm: CFLAGS += ${DFLAGS}
-testm: all ${TEST}
+testm: debug ${TEST}
 
+${TEST}: CFLAGS += ${DFLAGS}
 ${TEST}:
 	${AT}printf "\033[38;5;46m[GENERATING TEST]\033[0m\n"
 	${AT}${CC} ${CFLAGS} ${INCS} ${TESTS} ${BIN_ROOT}/${NAME} -o $@
