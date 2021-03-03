@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 20:15:07 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/03/03 18:37:07 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/03/03 19:06:58 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 
 #endif
