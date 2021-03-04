@@ -49,7 +49,7 @@ SRC_ROOT = src/
 INC_ROOT = inc/
 OBJ_ROOT = obj/
 DEP_ROOT = dep/
-TESTS_ROOT = tests/
+TESTS_ROOT = ./
 
 DIRS = ctype/ list/ norm/ stdio/ stdlib/ string/ conv/
 
@@ -169,10 +169,7 @@ testm: debug ${TEST}
 
 ${TEST}: CFLAGS += ${DFLAGS}
 ${TEST}:
-	${AT}printf "\033[38;5;46m[GENERATING TEST]\033[0m\n" ${BLOCK}
-	${AT}${CC} ${CFLAGS} ${INCS} ${TESTS} ${BIN_ROOT}/${NAME} -o $@
-	${AT}printf "\033[33m[RUNNING TEST]\033[0m\n" ${BLOCK}
-	${AT}./$@
+	${AT}printf "\033[38;5;46m[LIBFT COMPILED FOR DEBUG]\033[0m\n" ${BLOCK}
 
 ################################################################################
 # .PHONY
