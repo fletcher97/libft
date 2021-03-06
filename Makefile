@@ -66,7 +66,6 @@ TESTS := $(wildcard ${TESTS_ROOT}*.c)
 
 INCS := -I ${INC_ROOT}
 
-BINS := ${BIN_ROOT}${NAME}
 TEST := ${TESTS_ROOT}mytest
 
 ################################################################################
@@ -93,16 +92,13 @@ else ifeq ($(VERBOSE),4)
 	MAKEFLAGS += --debug=v
 endif
 
-maketest:
-	${AT}printf "\033[38;5;46m[CREATING abc ARCHIVE]\033[0m\n" ${BLOCK}
-
 ################################################################################
 # Project Target
 ################################################################################
 
-all: ${BINS}
+all: ${NAME}
 
-${BINS}: ${OBJS}
+${NAME}: ${OBJS}
 	${AT}printf "\033[38;5;46m[CREATING LIBFT ARCHIVE]\033[0m\n" ${BLOCK}
 	${AT}mkdir -p ${BIN_ROOT}
 	${AT}cd ${BIN_ROOT}; ${AR} ${@F} $(addprefix ../, ${OBJS})
