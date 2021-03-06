@@ -188,9 +188,10 @@ define make_dep
 ${1} : ${2}
 	$${AT}printf "\033[38;5;13m[DEP]: \033[38;5;47m$$@\033[0m\n" ${BLOCK}
 	$${AT}mkdir -p $${@D}
+	$${AT}rm -f $$@.tmp
 	$${AT}$${CC} -MM $$< -I $${INC_ROOT} -MF $$@
-	$${AT}sed -i.tmp --expression 's|:| $$@ :|' $$@ && rm $$@.tmp
-	$${AT}sed -i.tmp --expression '1 s|^|$${@D}/|' $$@ && rm $$@.tmp
+	$${AT}sed -i.tmp --expression 's|:| $$@ :|' $$@ && rm -f $$@.tmp
+	$${AT}sed -i.tmp --expression '1 s|^|$${@D}/|' $$@ && rm -f $$@.tmp
 endef
 
 ################################################################################
