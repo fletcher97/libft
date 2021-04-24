@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:20:08 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/03/03 19:08:07 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/03/04 01:47:31 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	get_line(int fd, char **saved, char **line)
 	while (!ft_strchr(saved[fd], '\n') && aux)
 	{
 		buff = ft_malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (ft_set(&aux, (int64_t)read(fd, buff, BUFFER_SIZE)) > 0)
+		if (ft_set64((int64_t *)&aux, (int64_t)read(fd, buff, BUFFER_SIZE)) > 0)
 		{
 			buff[aux] = '\0';
 			temp = ft_strjoin(saved[fd], buff);
