@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:22:12 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 20:28:26 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/16 00:37:25 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	if (!src && !dest)
 		return (NULL);
-	d = (t_uc*)dest;
-	s = (t_uc*)src;
+	d = (t_uc *)dest;
+	s = (t_uc *)src;
 	i = 0;
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 02:35:47 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/03/11 03:00:22 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/16 00:36:43 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_strendw(const char *str, const char *start)
 {
-	t_uc *s;
-	t_uc *d;
+	t_uc	*s;
+	t_uc	*d;
 
 	if (!str)
 		return (0);
@@ -23,8 +23,8 @@ int	ft_strendw(const char *str, const char *start)
 		return (1);
 	if (ft_strlen(str) < ft_strlen(start))
 		return (0);
-	s = (t_uc*)str;
-	d = (t_uc*)start;
+	s = (t_uc *)str;
+	d = (t_uc *)start;
 	while (s[1] && d[1] && *s == *d)
 	{
 		s++;

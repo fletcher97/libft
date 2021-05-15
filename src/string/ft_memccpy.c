@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 01:21:59 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/13 20:27:37 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/16 00:36:21 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 
 	if (!n)
 		return (NULL);
-	d = (t_uc*)dest;
-	s = (t_uc*)src;
+	d = (t_uc *)dest;
+	s = (t_uc *)src;
 	i = -1;
 	while (++i < n)
 	{
