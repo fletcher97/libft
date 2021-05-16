@@ -51,7 +51,7 @@ OBJ_ROOT = obj/
 DEP_ROOT = dep/
 TESTS_ROOT = tests/
 
-DIRS = ctype/ list/ norm/ stdio/ stdlib/ string/ conv/
+DIRS = ctype/ data_struct/list/ norm/ stdio/ stdlib/ string/ conv/
 
 SRC_DIRS := $(addprefix ${SRC_ROOT}, ${DIRS})
 OBJ_DIRS := $(addprefix ${OBJ_ROOT}, ${DIRS})
