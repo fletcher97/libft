@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstartw.c                                     :+:      :+:    :+:   */
+/*   ft_stackpop.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 02:35:47 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 00:36:43 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/05/16 01:14:57 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/05/16 01:42:23 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_stdlib.h"
+#include "ft_stack.h"
 
-int	ft_strendw(const char *str, const char *start)
+void	*ft_stackpop(t_stack *stack)
 {
-	t_uc	*s;
-	t_uc	*d;
+	void			*ret;
+	t_stack_elem	*tmp;
 
-	if (!str)
-		return (0);
-	if (!start || !*start)
-		return (1);
-	if (ft_strlen(str) < ft_strlen(start))
-		return (0);
-	s = (t_uc *)str;
-	d = (t_uc *)start;
-	while (s[1] && d[1] && *s == *d)
-	{
-		s++;
-		d++;
-	}
-	return (*s == *d);
+	tmp = stack->top;
+	stack->top = stack->top->prev;
+	stack->size--;
+	ret = tmp->content;
+	ft_free(tmp);
+	return (ret);
 }

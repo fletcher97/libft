@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstartw.c                                     :+:      :+:    :+:   */
+/*   ft_stackdestroy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 02:35:47 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 00:36:43 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/05/16 01:51:24 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/05/16 01:55:12 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_stdlib.h"
+#include "ft_stack.h"
 
-int	ft_strendw(const char *str, const char *start)
+void	ft_stackdestroy(t_stack *stack, void (*del)(void *))
 {
-	t_uc	*s;
-	t_uc	*d;
-
-	if (!str)
-		return (0);
-	if (!start || !*start)
-		return (1);
-	if (ft_strlen(str) < ft_strlen(start))
-		return (0);
-	s = (t_uc *)str;
-	d = (t_uc *)start;
-	while (s[1] && d[1] && *s == *d)
-	{
-		s++;
-		d++;
-	}
-	return (*s == *d);
+	while (ft_stacksize(stack))
+		if (del)
+			del(ft_stackpop(stack));
+		else
+			ft_stackpop(stack);
+	ft_free(stack);
 }

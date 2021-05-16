@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstartw.c                                     :+:      :+:    :+:   */
+/*   ft_stacknew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 02:35:47 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 00:36:43 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/05/16 00:43:16 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/05/16 01:42:36 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_stdlib.h"
+#include "ft_stack.h"
 
-int	ft_strendw(const char *str, const char *start)
+t_stack	*ft_stacknew()
 {
-	t_uc	*s;
-	t_uc	*d;
+	t_stack	*ret;
 
-	if (!str)
-		return (0);
-	if (!start || !*start)
-		return (1);
-	if (ft_strlen(str) < ft_strlen(start))
-		return (0);
-	s = (t_uc *)str;
-	d = (t_uc *)start;
-	while (s[1] && d[1] && *s == *d)
-	{
-		s++;
-		d++;
-	}
-	return (*s == *d);
+	ret = ft_malloc(sizeof(t_stack));
+	if (!ret)
+		return (NULL);
+	ret->size = 0;
+	ret->top = NULL;
+	return (ret);
 }

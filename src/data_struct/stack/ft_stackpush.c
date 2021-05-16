@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstartw.c                                     :+:      :+:    :+:   */
+/*   ft_stackpush.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 02:35:47 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 00:36:43 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/05/16 01:03:41 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/05/16 01:42:02 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include "ft_stdlib.h"
+#include "ft_stack.h"
 
-int	ft_strendw(const char *str, const char *start)
+void	ft_stackpush(t_stack *stack, void *content)
 {
-	t_uc	*s;
-	t_uc	*d;
+	t_stack_elem	*new;
 
-	if (!str)
-		return (0);
-	if (!start || !*start)
-		return (1);
-	if (ft_strlen(str) < ft_strlen(start))
-		return (0);
-	s = (t_uc *)str;
-	d = (t_uc *)start;
-	while (s[1] && d[1] && *s == *d)
-	{
-		s++;
-		d++;
-	}
-	return (*s == *d);
+	new = ft_malloc(sizeof(t_stack_elem));
+	new->content = content;
+	new->prev = stack->top;
+	stack->top = new;
+	stack->size++;
 }
