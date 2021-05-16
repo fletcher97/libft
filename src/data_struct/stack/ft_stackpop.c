@@ -6,10 +6,11 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 01:14:57 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 01:36:33 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/16 01:42:23 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stdlib.h"
 #include "ft_stack.h"
 
 void	*ft_stackpop(t_stack *stack)

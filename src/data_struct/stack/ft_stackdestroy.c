@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_stackdestroy.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 00:43:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 01:42:36 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/05/16 01:51:24 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/05/16 01:55:12 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdlib.h"
 #include "ft_stack.h"
 
-t_stack	*ft_stacknew()
+void	ft_stackdestroy(t_stack *stack, void (*del)(void *))
 {
-	t_stack	*ret;
-
-	ret = ft_malloc(sizeof(t_stack));
-	if (!ret)
-		return (NULL);
-	ret->size = 0;
-	ret->top = NULL;
-	return (ret);
+	while (ft_stacksize(stack))
+		if (del)
+			del(ft_stackpop(stack));
+		else
+			ft_stackpop(stack);
+	ft_free(stack);
 }
