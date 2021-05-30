@@ -6,15 +6,14 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:18:50 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 07:42:38 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/30 07:44:08 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
+#include "ft_stdlib.h"
 #include "ft_stdio.h"
 #include "ft_conv.h"
-
-
 
 void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 {
