@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:20:08 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/03/04 01:47:31 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/30 09:30:33 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
 #include "ft_string.h"
 #include "ft_stdlib.h"
 #include "ft_stdio.h"
+
+static char	*strjoin_gnl(char const *s1, char const *s2)
+{
+	char	*ret;
+	size_t	size1;
+	size_t	size2;
+
+	if (!s2)
+		return (NULL);
+	if (!s1)
+		size1 = 0;
+	else
+		size1 = ft_strlen(s1);
+	size2 = ft_strlen(s2);
+	if (!ft_set((int64_t *)&ret, (int64_t)malloc(size1 + size2 + 1)))
+		return (NULL);
+	ft_memcpy(ret, s1, size1);
+	ft_memcpy(ret + size1, s2, size2 + 1);
+	return (ret);
+}
 
 static char	*rem_line(char **saved)
 {
@@ -46,13 +66,13 @@ static int	get_line(int fd, char **saved, char **line)
 	char	*temp;
 
 	aux = 1;
-	while (!ft_strchr(saved[fd], '\n') && aux)
+	while ((!saved[fd] || !ft_strchr(saved[fd], '\n')) && aux)
 	{
 		buff = ft_malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (ft_set64((int64_t *)&aux, (int64_t)read(fd, buff, BUFFER_SIZE)) > 0)
 		{
 			buff[aux] = '\0';
-			temp = ft_strjoin(saved[fd], buff);
+			temp = strjoin_gnl(saved[fd], buff);
 			ft_free(saved[fd]);
 			saved[fd] = temp;
 		}
