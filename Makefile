@@ -2,8 +2,8 @@
 # Makefile
 ################################################################################
 
-# Makefile by fletcher
-# Version: 1.2
+# Makefile by fletcher97
+# Version: 1.2.1
 
 # This makefile can be copied to a directory and it will generate the file
 # structure and initialize a git repository with the .init rule. Any variables
@@ -13,7 +13,8 @@
 # Project Variables
 ################################################################################
 
-NAME = libft.a
+NAME1 = libft.a
+NAMES = ${NAME1}
 AR = ar rcs
 
 ################################################################################
@@ -37,7 +38,7 @@ VERBOSE = 1
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wvla
 DFLAGS = -g -fsanitize=address
 
 ################################################################################
@@ -45,10 +46,11 @@ DFLAGS = -g -fsanitize=address
 ################################################################################
 
 BIN_ROOT = bin/
-SRC_ROOT = src/
-INC_ROOT = inc/
-OBJ_ROOT = obj/
 DEP_ROOT = dep/
+INC_ROOT = inc/
+LIB_ROOT = lib/
+OBJ_ROOT = obj/
+SRC_ROOT = src/
 TESTS_ROOT = tests/
 
 DIRS = ctype/ data_struct/list/ norm/ stdio/ stdlib/ string/ conv/ \
@@ -57,6 +59,7 @@ DIRS = ctype/ data_struct/list/ norm/ stdio/ stdlib/ string/ conv/ \
 SRC_DIRS := $(addprefix ${SRC_ROOT}, ${DIRS})
 OBJ_DIRS := $(addprefix ${OBJ_ROOT}, ${DIRS})
 DEP_DIRS := $(addprefix ${DEP_ROOT}, ${DIRS})
+INC_DIRS := ${INC_ROOT}
 
 SRCS := $(foreach dir, ${SRC_DIRS}, $(wildcard ${dir}*.c))
 SRCS += $(wildcard ${SRC_ROOT}*.c)
@@ -65,8 +68,9 @@ DEPS := $(subst ${SRC_ROOT}, ${DEP_ROOT}, ${SRCS:.c=.d})
 
 TESTS := $(wildcard ${TESTS_ROOT}*.c)
 
-INCS := -I ${INC_ROOT}
+INCS := ${addprefix -I, ${INC_DIRS}}
 
+BINS := ${addprefix ${BIN_ROOT}, ${NAMES}}
 TEST := ${TESTS_ROOT}mytest
 
 ################################################################################
@@ -81,6 +85,14 @@ vpath %.d $(DEP_DIRS)
 ################################################################################
 # Conditions
 ################################################################################
+
+ifeq ($(shell uname), Linux)
+	SED := sed -i.tmp --expression
+	SED_END = && rm -f $@.tmp
+else ifeq ($(shell uname), Darwin)
+	SED = sed -i.tmp
+	SED_END = && rm -f $@.tmp
+endif
 
 ifeq ($(VERBOSE),0)
 	MAKEFLAGS += --silent
@@ -97,9 +109,9 @@ endif
 # Project Target
 ################################################################################
 
-all: ${NAME}
+all: ${BINS}
 
-${NAME}: ${OBJS}
+${NAME1}: ${OBJS}
 	${AT}printf "\033[38;5;46m[CREATING LIBFT ARCHIVE]\033[0m\n" ${BLOCK}
 	${AT}mkdir -p ${BIN_ROOT}
 	${AT}cd ${BIN_ROOT}; ${AR} ${@F} $(addprefix ../, ${OBJS})
@@ -178,6 +190,10 @@ ${TEST}:
 # Function
 ################################################################################
 
+define make_bin
+${1} : ${2}
+endef
+
 define make_obj
 ${1} : ${2} ${3}
 	$${AT}printf "\033[38;5;14m[OBJ]: \033[38;5;47m$$@\033[0m\n" ${BLOCK}
@@ -198,6 +214,9 @@ endef
 ################################################################################
 # Function Generator
 ################################################################################
+
+$(foreach bin, $(BINS), $(eval \
+$(call make_bin, $(bin), $(notdir $(bin)))))
 
 $(foreach src, $(SRCS), $(eval \
 $(call make_dep, $(subst ${SRC_ROOT}, ${DEP_ROOT}, $(src:.c=.d)), $(src))))
