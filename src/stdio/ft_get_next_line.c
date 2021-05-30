@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/23 15:20:08 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 09:30:33 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/30 09:32:19 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*strjoin_gnl(char const *s1, char const *s2)
 	else
 		size1 = ft_strlen(s1);
 	size2 = ft_strlen(s2);
-	if (!ft_set((int64_t *)&ret, (int64_t)malloc(size1 + size2 + 1)))
+	if (!ft_set64((int64_t *)&ret, (int64_t)ft_malloc(size1 + size2 + 1)))
 		return (NULL);
 	ft_memcpy(ret, s1, size1);
 	ft_memcpy(ret + size1, s2, size2 + 1);
