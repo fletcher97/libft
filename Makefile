@@ -54,7 +54,7 @@ SRC_ROOT = src/
 TESTS_ROOT = tests/
 
 DIRS = ctype/ data_struct/list/ norm/ stdio/ stdlib/ string/ conv/ \
-		data_struct/stack/
+		data_struct/stack/ sort/
 
 SRC_DIRS := $(addprefix ${SRC_ROOT}, ${DIRS})
 OBJ_DIRS := $(addprefix ${OBJ_ROOT}, ${DIRS})
