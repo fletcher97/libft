@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:18:50 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 07:34:42 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/30 07:42:38 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 {
 	t_stack_elem *ele;
+	char *ptr_string;
 
 	if (!s)
 		return;
@@ -26,7 +27,11 @@ void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 	if (toString && ele)
 		ft_putstr_fd(toString(ele->content), 1);
 	else if (ele)
-		ft_putstr_fd(ft_ultoa_base((unsigned long)ele->content, HEX_U), 1);
+	{
+		ptr_string = ft_ultoa_base((unsigned long)ele->content, HEX_U);
+		ft_putstr_fd(ptr_string, 1);
+		ft_free(ptr_string);
+	}
 	while (ele->prev)
 	{
 		ele = ele->prev;
@@ -34,7 +39,11 @@ void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 		if (toString)
 			ft_putstr_fd(toString(ele->content), 1);
 		else
-			ft_putstr_fd(ft_ultoa_base((unsigned long)ele->content, HEX_U), 1);
+		{
+			ptr_string = ft_ultoa_base((unsigned long)ele->content, HEX_U);
+			ft_putstr_fd(ptr_string, 1);
+			ft_free(ptr_string);
+		}
 	}
 	ft_putstr_fd("\n", 1);
 }
