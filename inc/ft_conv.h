@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:58:16 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/02/19 23:16:44 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 01:45:50 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define HEX_L "0123456789abcdef"
 # define HEX_U "0123456789ABCDEF"
 # define OCT "01234567"
+# define DEC "0123456789"
 
 char	*ft_itoa_base(int n, const char *base);
 char	*ft_itoa(int n);

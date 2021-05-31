@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:18:50 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 07:44:08 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 01:46:09 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 		ft_putstr_fd(toString(ele->content), 1);
 	else if (ele)
 	{
-		ptr_string = ft_ultoa_base((unsigned long)ele->content, HEX_U);
+		ptr_string = ft_ultoa_base((unsigned long)ele->content, DEC);
 		ft_putstr_fd(ptr_string, 1);
 		ft_free(ptr_string);
 	}
@@ -39,7 +39,7 @@ void ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim)
 			ft_putstr_fd(toString(ele->content), 1);
 		else
 		{
-			ptr_string = ft_ultoa_base((unsigned long)ele->content, HEX_U);
+			ptr_string = ft_ultoa_base((unsigned long)ele->content, DEC);
 			ft_putstr_fd(ptr_string, 1);
 			ft_free(ptr_string);
 		}
