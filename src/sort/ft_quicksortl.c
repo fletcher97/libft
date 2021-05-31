@@ -6,24 +6,24 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:22:34 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/31 01:51:27 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:50:19 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static void	swapqs(long *first, long *second)
 {
-	long temp;
+	long	temp;
 
 	temp = *first;
 	*first = *second;
 	*second = temp;
 }
 
-static int partitionqs(long arr[], int lower, int upper)
+static int	partitionqs(long arr[], int lower, int upper)
 {
-	int i;
-	long pivot;
-	int j;
+	int		i;
+	long	pivot;
+	int		j;
 
 	i = (lower - 1);
 	pivot = arr[upper];
@@ -40,10 +40,13 @@ static int partitionqs(long arr[], int lower, int upper)
 	return (i + 1);
 }
 
-void quicksortl(long arr[], int lower, int upper)
+void	quicksortl(long arr[], int lower, int upper)
 {
-	if (upper > lower) {
-		int partitionIndex = partitionqs(arr, lower, upper);
+	int	partitionIndex;
+
+	if (upper > lower)
+	{
+		partitionIndex = partitionqs(arr, lower, upper);
 		quicksortl(arr, lower, partitionIndex - 1);
 		quicksortl(arr, partitionIndex + 1, upper);
 	}
