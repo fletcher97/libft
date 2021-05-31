@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 00:46:07 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 07:05:19 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:38:00 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 
 # include <stddef.h>
 
+typedef union u_content
+{
+	void	*ptr;
+	int		i;
+}				t_content;
+
 typedef struct s_stack_elem
 {
-	void				*content;
+	t_content			cont;
 	struct s_stack_elem	*prev;
 }				t_stack_elem;
 
@@ -27,13 +33,13 @@ typedef struct s_stack
 	t_stack_elem	*top;
 }				t_stack;
 
-void	ft_stackdestroy(t_stack *stack, void (*del)(void *));
-t_stack *ft_stackdup(t_stack *o, void *(*dup)(void *));
-t_stack	*ft_stacknew(void);
-void	*ft_stackpeek(t_stack *stack);
-void	*ft_stackpop(t_stack *stack);
-void	ft_stackprint(t_stack *s, char *(*toString)(void *), char* delim);
-void	ft_stackpush(t_stack *stack, void *content);
-size_t	ft_stacksize(t_stack *stack);
+void		ft_stackdestroy(t_stack *stack, void (*del)(t_content));
+t_stack		*ft_stackdup(t_stack *o, t_content(*dup)(t_content));
+t_stack		*ft_stacknew(void);
+t_content	ft_stackpeek(t_stack *stack);
+t_content	ft_stackpop(t_stack *stack);
+void		ft_stackprint(t_stack *s, char *(*to_str)(t_content), char *delim);
+void		ft_stackpush(t_stack *stack, t_content content);
+size_t		ft_stacksize(t_stack *stack);
 
 #endif

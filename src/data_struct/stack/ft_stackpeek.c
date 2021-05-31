@@ -6,13 +6,13 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 01:22:07 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/16 01:36:53 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:39:55 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	*ft_stackpeek(t_stack *stack)
+t_content	ft_stackpeek(t_stack *stack)
 {
-	return (stack->top->content);
+	return (stack->top->cont);
 }

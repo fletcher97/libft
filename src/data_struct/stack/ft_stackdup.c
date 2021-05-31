@@ -6,28 +6,29 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 18:56:48 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/30 04:02:52 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:40:44 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdlib.h"
 #include "ft_stack.h"
 
-static void populate(t_stack_elem **dest, t_stack_elem *src, void *(*d)(void *))
+static void	populate(t_stack_elem **dest, t_stack_elem *src,
+	 t_content (*d)(t_content))
 {
 	if (!src)
-		return;
+		return ;
 	*dest = ft_malloc(sizeof(t_stack_elem));
 	if (d)
-		(*dest)->content = d(src->content);
+		(*dest)->cont = d(src->cont);
 	else
-		(*dest)->content = src->content;
+		(*dest)->cont = src->cont;
 	populate(&((*dest)->prev), src->prev, d);
 }
 
-t_stack *ft_stackdup(t_stack *o, void *(*dup)(void *))
+t_stack	*ft_stackdup(t_stack *o, t_content(*dup)(t_content))
 {
-	t_stack *ret;
+	t_stack	*ret;
 
 	if (!o)
 		return (NULL);
