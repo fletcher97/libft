@@ -6,7 +6,7 @@
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:22:34 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/31 01:47:49 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 01:51:27 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static int partitionqs(long arr[], int lower, int upper)
 	return (i + 1);
 }
 
-void quicksorti(long arr[], int lower, int upper)
+void quicksortl(long arr[], int lower, int upper)
 {
 	if (upper > lower) {
 		int partitionIndex = partitionqs(arr, lower, upper);
-		quickSort(arr, lower, partitionIndex - 1);
-		quickSort(arr, partitionIndex + 1, upper);
+		quicksortl(arr, lower, partitionIndex - 1);
+		quicksortl(arr, partitionIndex + 1, upper);
 	}
 }

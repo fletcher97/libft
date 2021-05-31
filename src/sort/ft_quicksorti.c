@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quicksort.c                                     :+:      :+:    :+:   */
+/*   ft_quicksorti.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 00:22:34 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/05/31 01:46:50 by mgueifao         ###   ########.fr       */
+/*   Updated: 2021/05/31 01:51:37 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void quicksorti(int arr[], int lower, int upper)
 {
 	if (upper > lower) {
 		int partitionIndex = partitionqs(arr, lower, upper);
-		quickSort(arr, lower, partitionIndex - 1);
-		quickSort(arr, partitionIndex + 1, upper);
+		quicksorti(arr, lower, partitionIndex - 1);
+		quicksorti(arr, partitionIndex + 1, upper);
 	}
 }
