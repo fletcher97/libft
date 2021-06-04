@@ -39,7 +39,8 @@ VERBOSE = 1
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -Wvla
-DFLAGS = -g -fsanitize=address
+DFLAGS = -g
+SANITIZE = -fsanitize=address
 
 ################################################################################
 # Folders & Files
@@ -165,6 +166,9 @@ re: fclean all
 
 debug: CFLAGS += ${DFLAGS}
 debug: all
+
+debug_asan: CFLAGS += ${DFLAGS} ${SANITIZE}
+debug_asan: all
 
 debug_re: fclean debug
 
