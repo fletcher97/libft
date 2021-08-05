@@ -42,12 +42,12 @@ static int	partitionqs(int arr[], int lower, int upper)
 
 void	quicksorti(int arr[], int lower, int upper)
 {
-	int	partitionIndex;
+	int	partition_index;
 
 	if (upper > lower)
 	{
-		partitionIndex = partitionqs(arr, lower, upper);
-		quicksorti(arr, lower, partitionIndex - 1);
-		quicksorti(arr, partitionIndex + 1, upper);
+		partition_index = partitionqs(arr, lower, upper);
+		quicksorti(arr, lower, partition_index - 1);
+		quicksorti(arr, partition_index + 1, upper);
 	}
 }

@@ -42,12 +42,12 @@ static int	partitionqs(long arr[], int lower, int upper)
 
 void	quicksortl(long arr[], int lower, int upper)
 {
-	int	partitionIndex;
+	int	partition_index;
 
 	if (upper > lower)
 	{
-		partitionIndex = partitionqs(arr, lower, upper);
-		quicksortl(arr, lower, partitionIndex - 1);
-		quicksortl(arr, partitionIndex + 1, upper);
+		partition_index = partitionqs(arr, lower, upper);
+		quicksortl(arr, lower, partition_index - 1);
+		quicksortl(arr, partition_index + 1, upper);
 	}
 }
