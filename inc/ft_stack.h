@@ -19,6 +19,7 @@ typedef union u_content
 {
 	void	*ptr;
 	int		i;
+	char	*str;
 }				t_content;
 
 typedef struct s_stack_elem
