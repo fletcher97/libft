@@ -17,7 +17,10 @@ static void	populate(t_stack_elem **dest, t_stack_elem *src,
 	 t_content (*d)(t_content))
 {
 	if (!src)
+	{
+		*dest = NULL;
 		return ;
+	}
 	*dest = ft_malloc(sizeof(t_stack_elem));
 	if (d)
 		(*dest)->cont = d(src->cont);
