@@ -136,7 +136,7 @@ DEFAULT_LIB_RULES += debug_tsan debug_tsan_re debug_msan debug_msan_re
 # Exemple:
 # DIRS := folder1/:folder2/
 # DIRS += folder1/:folder3/:folder4/
-DIRS := ctype/:data_struct/list/:norm/:stdio/:stdlib/:string/:conv/:\
+DIRS := ctype/:data_struct/list/:norm/:stdio/:stdlib/:string/:conv/:$\
 	data_struct/stack/:sort/
 
 SRC_DIRS_LIST := $(addprefix ${SRC_ROOT},${DIRS})
