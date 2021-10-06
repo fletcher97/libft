@@ -52,7 +52,7 @@ VERBOSE := 1
 # in others. If for example you just want to clean the root directory the clean
 # rule will be executed in any other makefile specified. You can deactivate the
 # creation of these targets by setting the bellow variable to 0.
-CREATE_LIB_TARGETS := 0
+# CREATE_LIB_TARGETS := 0
 
 ################################################################################
 # Compiler & Flags
@@ -96,9 +96,9 @@ SRC_ROOT := src/
 ################################################################################
 
 # Libft
-LIBFT_ROOT := ${LIB_ROOT}libft/
-LIBFT_INC := ${LIBFT_ROOT}inc/
-LIBFT := ${LIBFT_ROOT}bin/libft.a
+# LIBFT_ROOT := ${LIB_ROOT}libft/
+# LIBFT_INC := ${LIBFT_ROOT}inc/
+# LIBFT := ${LIBFT_ROOT}bin/libft.a
 
 # INC_DIRS += ${LIBFT_INC}
 # LIBS += -L${LIBFT_ROOT}bin -lft
@@ -112,18 +112,18 @@ LIBFT := ${LIBFT_ROOT}bin/libft.a
 
 # Default targets to create for libraries specified in DEFAULT_LIBS. This is a
 # small list of common targets in most makefiles.
-DEFAULT_LIB_RULES := all clean re
+# DEFAULT_LIB_RULES := all clean re
 
 # All projects with a copy of this makefile v2.1 and up ate garanteed to work
 # with these targets. If you wish to not use them just comment the lines you
 # don't want.
-DEFAULT_LIB_RULES += fclean clean_all clean_dep
-DEFAULT_LIB_RULES += debug debug_re debug_asan debug_asan_re
+# DEFAULT_LIB_RULES += fclean clean_all clean_dep
+# DEFAULT_LIB_RULES += debug debug_re debug_asan debug_asan_re
 
 # All projects with a copy of this makefile v2.2 and up ate garanteed to work
 # with these targets. If you wish to not use them just comment the lines you
 # don't want.
-DEFAULT_LIB_RULES += debug_tsan debug_tsan_re debug_msan debug_msan_re
+# DEFAULT_LIB_RULES += debug_tsan debug_tsan_re debug_msan debug_msan_re
 
 ################################################################################
 # Content Folders
@@ -188,9 +188,9 @@ else ifeq ($(VERBOSE),4)
 	MAKEFLAGS += --debug=v
 endif
 
-ifeq (${CREATE_LIB_TARGETS},0)
-	undefine DEFAULT_LIBS
-endif
+# ifeq (${CREATE_LIB_TARGETS},0)
+# 	undefine DEFAULT_LIBS
+# endif
 
 ################################################################################
 # VPATHS
