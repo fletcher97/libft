@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_treeinsert.c                                    :+:      :+:    :+:   */
+/*   t_treeclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgueifao <mgueifao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/16 21:16:41 by mgueifao          #+#    #+#             */
-/*   Updated: 2021/10/22 20:37:50 by mgueifao         ###   ########.fr       */
+/*   Created: 2021/10/22 20:43:17 by mgueifao          #+#    #+#             */
+/*   Updated: 2021/10/22 21:48:17 by mgueifao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 #include "ft_tree.h"
 
-int	ft_treeinsert(t_tree *tree, char *key, void *content)
+int	ft_treeclear(t_tree *t, void (*del)(void *))
 {
-	if (!tree)
-		return (-1);
-	while (tree->next)
-		tree = tree->next;
-	tree->next = ft_treenew(key, content);
-	if (!tree->next)
+	if (!t)
 		return (0);
+	if (t->leafs)
+		ft_treeclear(t->leafs, del);
+	if (t->leafs)
+		free(t->leafs);
+	if (t->next)
+		ft_treeclear(t->next, del);
+	if (t->next)
+		free(t->next);
+	ft_lstclear(&(t->content), del);
+	free(t);
 	return (1);
 }
