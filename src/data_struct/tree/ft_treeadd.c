@@ -13,11 +13,11 @@
 #include "ft_tree.h"
 #include "ft_stdlib.h"
 
-int	ft_treeadd(t_tree *tree, char *key, void *content)
+int	ft_treeadd(t_tree *tree, void *content)
 {
 	t_tree	*new;
 
-	new = ft_treenew(key, content);
+	new = ft_treenew(content);
 	if (!new)
 		return (0);
 	tree->leafs = ft_realloc(tree->leafs, tree->lcount, tree->lcount + 1);

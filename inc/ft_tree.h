@@ -15,14 +15,13 @@
 
 typedef struct s_tree
 {
-	char			*key;
 	void			*content;
 	int				lcount;
 	struct s_tree	**leafs;
 }				t_tree;
 
-t_tree	*ft_treenew(char *key, void *content);
-int		ft_treeadd(t_tree *tree, char *key, void *content);
+t_tree	*ft_treenew(void *content);
+int		ft_treeadd(t_tree *tree, void *content);
 int		ft_treeclear(t_tree *t, void (*del)(void *));
 
 #endif

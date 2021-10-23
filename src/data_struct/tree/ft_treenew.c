@@ -13,7 +13,7 @@
 #include "ft_tree.h"
 #include "ft_stdlib.h"
 
-t_tree	*ft_treenew(char *key, void *content)
+t_tree	*ft_treenew(void *content)
 {
 	t_tree	*ret;
 
@@ -21,6 +21,5 @@ t_tree	*ft_treenew(char *key, void *content)
 	if (!ret)
 		return (NULL);
 	ret->content = content;
-	ret->key = key;
 	return (ret);
 }
