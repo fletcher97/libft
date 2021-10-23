@@ -21,6 +21,7 @@ int	ft_treeclear(t_tree *t, void (*del)(void *))
 	del(t->content);
 	while (t->lcount)
 		ft_treeclear(t->leafs[--t->lcount], del);
+	free(t->leafs);
 	free(t);
 	return (1);
 }
