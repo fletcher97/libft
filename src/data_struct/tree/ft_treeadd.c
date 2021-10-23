@@ -20,7 +20,8 @@ int	ft_treeadd(t_tree *tree, void *content)
 	new = ft_treenew(content);
 	if (!new)
 		return (0);
-	tree->leafs = ft_realloc(tree->leafs, tree->lcount, tree->lcount + 1);
+	tree->leafs = ft_realloc(tree->leafs, tree->lcount * sizeof(t_tree),
+			(tree->lcount + 1) * sizeof(t_tree));
 	tree->leafs[tree->lcount++] = new;
 	return (1);
 }
