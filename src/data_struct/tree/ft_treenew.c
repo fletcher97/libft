@@ -20,12 +20,7 @@ t_tree	*ft_treenew(char *key, void *content)
 	ret = ft_calloc(1, sizeof(t_tree));
 	if (!ret)
 		return (NULL);
-	ret->content = ft_lstnew(content);
-	if (!ret->content)
-	{
-		ft_free(ret);
-		return (NULL);
-	}
+	ret->content = content;
 	ret->key = key;
 	return (ret);
 }

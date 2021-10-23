@@ -12,13 +12,14 @@
 
 #include "ft_tree.h"
 
-int	ft_treeaddleaf(t_tree *tree, void *content)
+int	ft_treeadd(t_tree *tree, void *key, void *content)
 {
-	t_list	*new;
+	t_tree	*new;
 
-	new = ft_lstnew(content);
+	new = ft_treenew(key, content);
 	if (!new)
 		return (0);
-	ft_lstadd_back(&(tree->content), new);
+	ft_realloc(tree->leafs, tree->lcount + 1);
+	tree->leafs[tree->lcount++] = new;
 	return (1);
 }
